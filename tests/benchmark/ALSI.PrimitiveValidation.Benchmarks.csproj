@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+        <OutputType>Exe</OutputType>
+        <RunAnalyzers>false</RunAnalyzers>
+		<Aot>True</Aot>
+    </PropertyGroup>
+    <ItemGroup>
+      <PackageReference Include="BenchmarkDotNet" />
+      <PackageReference Include="System.ComponentModel.Annotations" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\ALSI.PrimitiveValidation.csproj" />
+    </ItemGroup>
+</Project>

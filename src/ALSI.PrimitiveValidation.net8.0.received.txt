@@ -1,0 +1,41 @@
+[assembly: System.Reflection.AssemblyMetadata("IsTrimmable", "True")]
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("ALSI.PrimitiveValidation.Benchmarks")]
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("ALSI.PrimitiveValidation.IntegrationTests")]
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("ALSI.PrimitiveValidation.UnitTests")]
+[assembly: System.Runtime.Versioning.RequiresPreviewFeatures]
+[assembly: System.Runtime.Versioning.TargetFramework(".NETCoreApp,Version=v8.0", FrameworkDisplayName=".NET 8.0")]
+namespace ALSI.PrimitiveValidation.CompatibilityPatch
+{
+    public static class IndexOfAnyAsciiSearcher
+    {
+        public static bool ContainsAnyExcept(this ALSI.PrimitiveValidation.CompatibilityPatch.SearchValues span, System.ReadOnlySpan<char> values) { }
+        public static bool ContainsAnyExceptVectorised(this ALSI.PrimitiveValidation.CompatibilityPatch.SearchValues span, System.ReadOnlySpan<char> values) { }
+    }
+    public class SearchValues : System.Collections.Generic.IEnumerable<char>, System.Collections.IEnumerable, System.IEquatable<ALSI.PrimitiveValidation.CompatibilityPatch.SearchValues>
+    {
+        public SearchValues(System.ReadOnlySpan<char> span) { }
+        public System.Runtime.Intrinsics.Vector256<byte> Bitmap { get; }
+        public System.Collections.Generic.IEnumerator<char> GetEnumerator() { }
+        public static ALSI.PrimitiveValidation.CompatibilityPatch.SearchValues op_Implicit(string vals) { }
+    }
+}
+namespace ALSI.PrimitiveValidation
+{
+    [System.AttributeUsage(System.AttributeTargets.Property | System.AttributeTargets.Field | System.AttributeTargets.Parameter, AllowMultiple=false)]
+    public class IsBase64Attribute : System.ComponentModel.DataAnnotations.ValidationAttribute
+    {
+        public IsBase64Attribute() { }
+        public override bool IsValid(object? value) { }
+        protected override System.ComponentModel.DataAnnotations.ValidationResult? IsValid(object? value, System.ComponentModel.DataAnnotations.ValidationContext validationContext) { }
+    }
+    public class PropertyNotNullAttribute : System.ComponentModel.DataAnnotations.ValidationAttribute
+    {
+        public PropertyNotNullAttribute() { }
+        protected override System.ComponentModel.DataAnnotations.ValidationResult? IsValid(object? value, System.ComponentModel.DataAnnotations.ValidationContext validationContext) { }
+    }
+    public class StringNotNullOrEmptyAttribute : System.ComponentModel.DataAnnotations.ValidationAttribute
+    {
+        public StringNotNullOrEmptyAttribute() { }
+        protected override System.ComponentModel.DataAnnotations.ValidationResult? IsValid(object? value, System.ComponentModel.DataAnnotations.ValidationContext validationContext) { }
+    }
+}
